@@ -95,7 +95,8 @@ let rec last_search c bwt l acc =
     | x :: r -> if (x >= 0 && compare bwt x c) then last_search c bwt r (x :: acc)
                 else last_search c bwt r acc;;
 
-(* Cherche une occurrence dans une chaîne 
+(* 
+ * Cherche une occurrence dans une chaîne 
  * on génère une premiere liste de rangs avec first_search
  * on baisse d'un indice tout les rangs du résultat
  * on génère une nouvelle liste de rangs avec last_search
