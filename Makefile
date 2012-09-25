@@ -1,30 +1,42 @@
-CC=				ocamlc
+OCC=			ocamlc
+CXX=			g++
 IDIR=			include
 LDIRS=			
 LFLAGS=			$(LDIRS)
-CFLAGS=			
+CFLAGS=			-std=c++11	
 RM=				rm -f
 CP=				cp -f
 
 NAME=			search
+ONAME=			search-ocaml
+CNAME=			search-cpp
 
-SRC=			src/main.ml \
-
-OBJ=			$(SRC:.ml=.cmo)
+OSRC=			src/main.ml
+CSRC=			src/main.cpp
+OOBJ=			$(OSRC:.ml=.cmo)
+COBJ=			$(CSRC:.cpp=.o)
 
 all: $(NAME)
 
-$(NAME):	$(OBJ)
-	$(CC) $(OBJ) -o $(NAME) $(CFLAGS) $(LFLAGS)
+$(NAME): $(ONAME) $(CNAME)
+
+$(ONAME): $(OOBJ)
+	$(OCC) $(OOBJ) -o $(ONAME)
+
+$(CNAME): $(COBJ)
+	$(CXX) $(COBJ) -o $(CNAME) $(CFLAGS) $(LFLAGS)
 
 %.cmo: %.ml
-	$(CC) -c $< -o $@ $(CFLAGS)
+	$(OCC) -c $< -o $@
+
+%.o: %.cpp
+	$(CXX) -c $< -o $@ $(CFLAGS)
 
 clean:
-	$(RM) $(OBJ)
+	$(RM) $(OOBJ) $(COBJ)
 
 fclean: clean
-	$(RM) $(NAME)
+	$(RM) $(ONAME) $(CNAME)
 
 re: fclean all
 
