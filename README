@@ -1,0 +1,13 @@
+Bon, je m'emmerde mais j'ai aussi une fleme énorme pour coder (il y a des jours
+comme ça). Donc pour ceux qui voudrait en savoir plus sur le sujet, il y a une
+explication plus que evasive sur le sujet sur mon blog (cf. Google). Sinon, il y
+a une faute dans mes programmes. Le programme en OCaml va chercher la première
+chaîne de caractère dans la deuxième alors que le programme en C++ fait
+l'inverse.
+
+Comme il l'est dit ci-dessus, j'ai la flemme de corriger le bug est comme une
+foule énorme va utiliser ce logiciel ré-vo-lu-tio-naire (oui, c'est le cas), je
+vous invite à faire un patch sur le projet. Merci de prendre une attention
+particulière à mes projets inutiles.
+
+Romain Calascibetta
