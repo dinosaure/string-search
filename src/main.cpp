@@ -65,9 +65,9 @@ search(vector<string> array, string s)
 
   it = s.begin();
 
-  do {
+  do
     re = (it - s.begin() == 0) ? fsearch(array, (*it)) : lsearch(array, re, (*it));
-  } while (++it != s.end() && re.empty() == false);
+  while (++it != s.end() && re.empty() == false);
 
   return (re);
 }
